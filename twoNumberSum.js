@@ -8,3 +8,5 @@ const twoNumberSum = (array, targetSum) => {
   }
   return [];
 }
+
+module.exports = twoNumberSum;
