@@ -1,5 +1,4 @@
-function twoNumberSum2(array, targetSum) {
-  // Write your code here.
+const twoNumberSum2 = (array, targetSum) => {
 	const hash = {};
 	for (let i = 0; i < array.length; i++) { // O(n) TS
 		let current = array[i];
