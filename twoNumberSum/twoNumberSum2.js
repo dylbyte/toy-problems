@@ -1,12 +1,11 @@
 const twoNumberSum2 = (array, targetSum) => {
-	const hash = {};
-	for (let i = 0; i < array.length; i++) { // O(n) TS
-		let current = array[i];
-		let key = targetSum - current;
-		if (hash[key]) {
-			return hash[key].concat(current);
+	const nums = {};
+	for (const num of array) { // O(n) TS
+		const potentialMatch = targetSum - num;
+		if (potentialMatch in nums) {
+			return [potentialMatch, num];
 		}
-		hash[current] = [current];
+		nums[num] = true;
 	}
 	return [];
 }
