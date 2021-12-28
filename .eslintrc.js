@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    "no-param-reassign": 2,
+    "no-param-reassign": 1,
     "no-plusplus": [2, { allowForLoopAfterthoughts: true }],
     "quotes": 1
   }
