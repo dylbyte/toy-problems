@@ -5,11 +5,11 @@
   "main": "twoNumberSum.js",
   "devDependencies": {
     "eslint": "^8.5.0",
-    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
     "jest": "^27.4.5"
   },
   "scripts": {
+    "lint": "eslint --fix",
     "test": "jest"
   },
   "repository": {
