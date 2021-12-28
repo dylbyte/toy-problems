@@ -5,6 +5,7 @@ function updateScores(scores, winner) {
   scores[winner] += 3;
 }
 
+// O(n) time | O(k) space
 function tournamentWinner(competitions, results) {
   const HOME_TEAM_WON = 1;
   const scores = {};
