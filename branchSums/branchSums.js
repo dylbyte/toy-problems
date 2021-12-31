@@ -1,35 +1,19 @@
-class BinaryTree {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-
-  insert(values, i = 0) {
-    if (i >= values.length) return;
-    const queue = [this];
-    while (queue.length > 0) {
-      let current = queue.shift();
-      if (current.left === null) {
-        current.left = new BinaryTree(values[i]);
-        break;
-      }
-      queue.push(current.left);
-      if (current.right === null) {
-        current.right = new BinaryTree(values[i]);
-        break;
-      }
-      queue.push(current.right);
-    }
-    this.insert(values, i + 1);
-    return this;
-  }
-}
-
+// O(n) time | O(n) space
 function branchSums(root) {
-  const result = [];
-  return result;
+  return calculateBranchSums(root, 0, []);
 }
 
+function calculateBranchSums(node, runningSum, sums) {
+  if (!node) return sums;
 
-module.exports = { BinaryTree, branchSums }
+  const newRunningSum = runningSum + node.value;
+  if (!node.left && !node.right) {
+    sums.push(newRunningSum);
+    return sums;
+  }
+  calculateBranchSums(node.left, newRunningSum, sums);
+  calculateBranchSums(node.right, newRunningSum, sums);
+  return sums;
+}
+
+module.exports = branchSums;
