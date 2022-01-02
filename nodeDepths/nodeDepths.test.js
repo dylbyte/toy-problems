@@ -1,5 +1,6 @@
 const BinaryTree = require("../BST/BinaryTree");
 const nodeDepths = require("./nodeDepths");
+const nodeDepths2 = require("./nodeDepths2");
 const { expect, test } = require("@jest/globals");
 
 const root = new BinaryTree(1);
@@ -12,7 +13,12 @@ const root = new BinaryTree(1);
   root.right.left = new BinaryTree(6);
   root.right.right = new BinaryTree(7);
 
-test("find the sum of the node depths in binary tree", () => {
+test("Recursively find the sum of the node depths in binary tree", () => {
   const sum = nodeDepths(root);
+  expect(sum).toEqual(16);
+});
+
+test("Iteratively find the sum of the node depths in binary tree", () => {
+  const sum = nodeDepths2(root);
   expect(sum).toEqual(16);
 });
