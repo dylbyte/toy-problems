@@ -10,7 +10,7 @@ class Node {
   }
 
   depthFirstSearch(array) {
-    // Write your code here.
+    return array;
   }
 }
 
