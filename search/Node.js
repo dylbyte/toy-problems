@@ -9,9 +9,23 @@ class Node {
     return this;
   }
 
+  // O(v + e) time | O(v) space
   depthFirstSearch(array) {
+    array.push(this.name);
+    for (const child of this.children) {
+      child.depthFirstSearch(array);
+    }
     return array;
   }
 }
 
 module.exports = Node;
+
+const graph = new Node("A");
+    graph.addChild("B").addChild("C").addChild("D");
+    graph.children[0].addChild("E").addChild("F");
+    graph.children[2].addChild("G").addChild("H");
+    graph.children[0].children[1].addChild("I").addChild("J");
+    graph.children[2].children[0].addChild("K");
+
+console.log(graph.depthFirstSearch([]));
