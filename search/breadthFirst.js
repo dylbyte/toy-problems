@@ -8,4 +8,14 @@ function breadthFirst1(queue, array) { // queue initially contains [root]
   return array;
 }
 
-module.exports = { breadthFirst1 };
+function breadthFirst2(queue, array) {
+  if (!queue.length) return array;
+  
+  const node = queue.shift();
+  array.push(node.value);
+  if (node.left) queue.push(node.left);
+  if (node.right) queue.push(node.right);
+  return breadthFirst2(queue, array);
+}
+
+module.exports = { breadthFirst1, breadthFirst2 };
