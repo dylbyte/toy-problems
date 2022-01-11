@@ -30,6 +30,6 @@ const linkedList = new Node(1);
 linkedList.next = new Node(2);
 linkedList.next.next = new Node(3);
 linkedList.next.next.next = new Node(4);
+linkedList.next.next.next.next = new Node(5);
 
-console.log(nthToLast(linkedList, 2));
-
+console.log(nthToLast(linkedList, 3));
