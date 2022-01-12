@@ -1,10 +1,3 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
-
 function nthToLast(node, n) {
   // initialize pointers
   let current = node;
@@ -23,13 +16,4 @@ function nthToLast(node, n) {
   return follower;
 }
 
-// 1 -> 2 -> 3 -> 4-> 5 -> null
-// nthToLast(n = 2)?
-
-const linkedList = new Node(1);
-linkedList.next = new Node(2);
-linkedList.next.next = new Node(3);
-linkedList.next.next.next = new Node(4);
-linkedList.next.next.next.next = new Node(5);
-
-console.log(nthToLast(linkedList, 3));
+module.exports = nthToLast;
