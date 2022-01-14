@@ -10,7 +10,7 @@ module.exports = {
   },
   rules: {
     "no-param-reassign": 1,
-    "no-plusplus": [2, { allowForLoopAfterthoughts: true }],
+    "no-plusplus": [0, { allowForLoopAfterthoughts: true }],
     "quotes": 1,
     "semi": 1,
     "no-multi-spaces": 1,
