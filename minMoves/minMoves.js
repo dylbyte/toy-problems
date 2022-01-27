@@ -12,5 +12,4 @@ function minMoves(target, maxDoubles) {
   return moves;
 }
 
-console.log(minMoves(10, 4));
 module.exports = minMoves;
