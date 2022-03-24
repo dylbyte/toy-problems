@@ -18,4 +18,7 @@ function containsDuplicate2(nums) {
   return false;
 }
 
-module.exports = { containsDuplicate, containsDuplicate2 };
+module.exports = {
+  setSolution: containsDuplicate,
+  objectSolution: containsDuplicate2,
+};
