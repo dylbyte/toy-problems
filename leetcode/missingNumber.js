@@ -4,7 +4,6 @@ function missingNumber(nums) {
   for (let num of nums) {
     res[num] = num;
   }
-
   return res.indexOf(-1);
 }
 
@@ -19,4 +18,5 @@ function missingNumber2(nums) {
   return sum;
 }
 
+// console.log(missingNumber2([9, 6, 4, 2, 3, 5, 7, 0, 1]));
 module.exports = missingNumber;
