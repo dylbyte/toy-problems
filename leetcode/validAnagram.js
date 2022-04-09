@@ -20,4 +20,19 @@ const validAnagram = (s, t) => {
   return true;
 };
 
-module.exports = validAnagram;
+const validAnagram2 = (s, t) => {
+  if (s.length !== t.length) return false;
+
+  s.sort();
+  t.sort();
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== t[i]) return false;
+  }
+  return true;
+};
+
+module.exports = {
+  validAnagram,
+  validAnagram2,
+};
