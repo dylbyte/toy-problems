@@ -6,26 +6,26 @@
  ** Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
  */
 
-// 2, 4, 1
+// Two PTR
 const maxProfit = (prices) => {
-  let min = prices[0];
-  let max = prices[0];
+  let l = 0; // buy
+  let r = 1; // sell
+  let maxProfit = 0;
 
-  for (let i = 1; i < prices.length; i++) {
-    const price = prices[i];
+  while (r < prices.length) {
+    const buy = prices[l];
+    const sell = prices[r];
+    let profit = sell - buy;
 
-    if (price < min) {
-      min = price;
-      // update max once new min is found
-      max = price;
+    // profitable?
+    if (buy < sell) {
+      maxProfit = Math.max(maxProfit, profit);
+    } else {
+      l = r;
     }
-
-    if (price > max) {
-      max = price;
-    }
+    r++;
   }
-
-  return max !== min ? max - min : 0;
+  return maxProfit;
 };
 
 module.exports = maxProfit;
