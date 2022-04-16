@@ -5,12 +5,25 @@
  **  Open brackets must be closed in the correct order.
  */
 
-const validParentheses = (s) => {
-  // const stack = [];
-  // for (const char of s) {
-  //   stack.push(char);
-  // }
-  // return true;
+const isValid = (s) => {
+  // ()[]{}
+  const bracketMap = {
+    ")": "(",
+    "]": "[",
+    "}": "{",
+  };
+
+  const stack = [];
+
+  for (const char of s) {
+    if (char in bracketMap) {
+      const last = stack.pop();
+      if (last !== bracketMap[char]) return false;
+    } else {
+      stack.push(char);
+    }
+  }
+  return stack.length === 0;
 };
 
-module.exports = validParentheses;
+module.exports = isValid;
