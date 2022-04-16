@@ -10,36 +10,31 @@
 
 class MinStack {
   constructor() {
-    this.items = [];
-    this.min = null;
+    this.stack = [];
+    this.minStack = [];
   }
 
   push(val) {
-    this.items.push(val);
-    if (!this.min || val < this.min) this.min = val;
+    this.stack.push(val);
+    // compare top of minStack to val
+    const min = Math.min(
+      val,
+      this.minStack.length ? this.minStack[this.minStack.length - 1] : val
+    );
+    this.minStack.push(min);
   }
 
   pop() {
-    const top = this.top();
-    if (top === this.min) {
-      this.min = null;
-      this.getMin();
-    }
-    return;
-  }
-
-  getMin() {
-    if (this.min) return this.min;
-
-    this.min = this.items.reduce((min, val) => {
-      let newMin = min;
-      if (val < min) newMin = val;
-      return newMin;
-    }, Number.MAX_SAFE_INTEGER);
+    this.stack.pop();
+    this.minStack.pop();
   }
 
   top() {
-    return this.items[this.items.length - 1];
+    return this.stack[this.stack.length - 1];
+  }
+
+  getMin() {
+    return this.minStack[this.minStack.length - 1];
   }
 }
 
