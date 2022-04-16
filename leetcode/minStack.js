@@ -8,10 +8,39 @@
  **  int getMin() retrieves the minimum element in the stack.
  */
 
-class minStack {
+class MinStack {
   constructor() {
     this.items = [];
+    this.min = null;
+  }
+
+  push(val) {
+    this.items.push(val);
+    if (!this.min || val < this.min) this.min = val;
+  }
+
+  pop() {
+    const top = this.top();
+    if (top === this.min) {
+      this.min = null;
+      this.getMin();
+    }
+    return;
+  }
+
+  getMin() {
+    if (this.min) return this.min;
+
+    this.min = this.items.reduce((min, val) => {
+      let newMin = min;
+      if (val < min) newMin = val;
+      return newMin;
+    }, Number.MAX_SAFE_INTEGER);
+  }
+
+  top() {
+    return this.items[this.items.length - 1];
   }
 }
 
-module.exports = minStack;
+module.exports = MinStack;
