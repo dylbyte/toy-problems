@@ -22,4 +22,20 @@ const reverseList = (head) => {
   return prev; // new head
 };
 
-module.exports = reverseList;
+// [1] -> [2] -> [3] -> null
+const reverseListR = (head) => {
+  // base case
+  if (!head) return null;
+  let newHead = head;
+  if (head.next) {
+    newHead = reverseListR(head.next);
+    head.next.next = head; // reverse link between next node and head
+  }
+  head.next = null; // if head is 1st node in list, set next pointer to null
+  return newHead;
+};
+
+module.exports = {
+  reverseList,
+  reverseListR,
+};
