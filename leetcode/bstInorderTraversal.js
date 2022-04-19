@@ -16,4 +16,15 @@ const inorderTraversal = (root) => {
   return result;
 };
 
-module.exports = inorderTraversal;
+const inorderTraversalR = (root, res = []) => {
+  if (root === null) return [];
+  inorderTraversalR(root.left, res);
+  res.push(root.val);
+  inorderTraversalR(root.right, res);
+  return res;
+};
+
+module.exports = {
+  inorderTraversal,
+  inorderTraversalR,
+};
