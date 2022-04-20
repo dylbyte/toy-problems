@@ -8,4 +8,18 @@ const maxDepth = (root) => {
   return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
 
+const maxDepthBFS = (root) => {
+  const queue = [root];
+  let level = 0;
+  while (queue.length) {
+    for (let i = 0; i < queue.length; i++) {
+      const node = queue.shift();
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    level += 1;
+  }
+  return level;
+};
+
 module.exports = maxDepth;
