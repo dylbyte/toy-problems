@@ -22,4 +22,19 @@ const maxDepthBFS = (root) => {
   return level;
 };
 
+const maxDepthDFS = (root) => {
+  const stack = [[root, 1]];
+  let result = 0;
+
+  while (stack.length) {
+    const [node, depth] = stack.pop();
+    if (node) {
+      result = Math.max(result, depth);
+      stack.push([node.left, depth + 1]);
+      stack.push([node.right, depth + 1]);
+    }
+  }
+  return result;
+};
+
 module.exports = maxDepth;
