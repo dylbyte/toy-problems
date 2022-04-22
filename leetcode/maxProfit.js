@@ -6,7 +6,7 @@
  ** Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
  */
 
-// Two PTR
+// Two POINTER
 const maxProfit = (prices) => {
   let l = 0; // buy
   let r = 1; // sell
