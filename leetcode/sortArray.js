@@ -14,7 +14,7 @@ const quickSort = (nums) => {
   return [...quickSort(left), pivot, ...quickSort(right)];
 };
 
-/* Code below (csdojo.io/qs) not working on leetcode #912 */
+/* adapted from csdojo.io/qs */
 const sortArray = (nums) => {
   if (nums.length <= 1) return nums; // hacky fix...
   quickSort2(nums, 0, nums.length - 1);
