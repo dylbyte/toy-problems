@@ -8,10 +8,12 @@ const validAnagram = (s, t) => {
   const sCounts = {};
   const tCounts = {};
 
-  // iterate over s/2, store each char and number of occurrences as { [char]: count }
+  // iterate over s/t, store each char and number of occurrences as { [char]: count }
   for (let i = 0; i < s.length; i++) {
-    s[i] in sCounts ? sCounts[s[i]]++ : (sCounts[s[i]] = 1);
-    t[i] in tCounts ? tCounts[t[i]]++ : (tCounts[t[i]] = 1);
+    sCounts[s[i]] = (sCounts[s[i]] || 0) + 1;
+    tCounts[t[i]] = (tCounts[t[i]] || 0) + 1;
+    // s[i] in sCounts ? sCounts[s[i]]++ : (sCounts[s[i]] = 1);
+    // t[i] in tCounts ? tCounts[t[i]]++ : (tCounts[t[i]] = 1);
   }
 
   for (const char of tCounts) {
