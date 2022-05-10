@@ -24,6 +24,19 @@ const validAnagram = (s, t) => {
 
 const validAnagram2 = (s, t) => {
   if (s.length !== t.length) return false;
+  const counts = {};
+  for (const char of s) {
+    counts[char] = (counts[char] || 0) + 1;
+  }
+  for (const char of t) {
+    if (!counts[char]) return false;
+    counts[char] -= 1;
+  }
+  return true;
+};
+
+const validAnagram3 = (s, t) => {
+  if (s.length !== t.length) return false;
 
   const sArr = s.split("").sort();
   const tArr = t.split("").sort();
@@ -37,4 +50,5 @@ const validAnagram2 = (s, t) => {
 module.exports = {
   validAnagram,
   validAnagram2,
+  validAnagram3,
 };
