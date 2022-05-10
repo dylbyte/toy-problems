@@ -25,11 +25,11 @@ const validAnagram = (s, t) => {
 const validAnagram2 = (s, t) => {
   if (s.length !== t.length) return false;
 
-  s.sort();
-  t.sort();
+  const sArr = s.split("").sort();
+  const tArr = t.split("").sort();
 
   for (let i = 0; i < s.length; i++) {
-    if (s[i] !== t[i]) return false;
+    if (sArr[i] !== tArr[i]) return false;
   }
   return true;
 };
