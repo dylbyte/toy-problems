@@ -20,21 +20,17 @@ const maxSum2 = (nums, n) => {
 
   let maxSum = 0;
   let tempSum = 0;
-
   // handles first n values
   for (let i = 0; i < n; i++) {
     maxSum += nums[i];
   }
-
   tempSum = maxSum;
-
   // handles remainder of the array
-  for (let i = n; i < nums.length; i++) {
+  for (let j = n; j < nums.length; j++) {
     // subtract old window start, add new window end
-    tempSum = tempSum - nums[i - n] + nums[i]; // sliding the window
+    tempSum = tempSum - nums[j - n] + nums[j]; // sliding the window
     maxSum = Math.max(maxSum, tempSum);
   }
-
   return maxSum;
 };
 
