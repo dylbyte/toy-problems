@@ -8,7 +8,7 @@
 
 // O(n^2) T | O(1) S - Brute force approach
 const minSubarrayLen = (nums, target) => {
-  let minLen = Infinity;
+  let minLen = Number.MAX_SAFE_INTEGER;
   for (let i = 0; i < nums.length; i++) {
     let sum = nums[i];
     let len = 1;
@@ -21,9 +21,39 @@ const minSubarrayLen = (nums, target) => {
       }
     }
   }
+  return minLen === Number.MAX_SAFE_INTEGER ? 0 : minLen;
+};
+
+// O(n) T | O(1) S - sliding window approach
+const minSubarrayLen2 = (nums, sum) => {
+  let total = 0;
+  let start = 0;
+  let end = 0;
+  let minLen = Infinity;
+
+  while (start < nums.length) {
+    // if current window doesnt add up to the given sum, move window to right
+    if (total < sum && end < nums.length) {
+      total += nums[end];
+      end++;
+    }
+
+    // if current window adds up to at least the sum given, shrink window
+    else if (total >= sum) {
+      minLen = Math.min(minLen, end - start);
+      total -= nums[start];
+      start++;
+    }
+
+    // current total is less than required sum but we've reached the end
+    else {
+      break;
+    }
+  }
   return minLen === Infinity ? 0 : minLen;
 };
 
 module.exports = {
   minSubarrayLen,
+  minSubarrayLen2,
 };
