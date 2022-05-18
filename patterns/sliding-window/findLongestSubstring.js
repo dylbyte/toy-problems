@@ -25,4 +25,26 @@ const findLongestSubstring = (str) => {
   return maxLen;
 };
 
-module.exports = findLongestSubstring;
+// O(n) T | O(n) S - Sliding window
+const findLongestSubstring2 = (str) => {
+  const charSet = new Set();
+  let l = 0;
+  let res = 0;
+
+  for (let r = 0; r < str.length; r++) {
+    const char = str[r];
+    while (charSet.has(char)) {
+      // update window
+      charSet.delete(str[l]);
+      l += 1;
+    }
+    charSet.add(char);
+    res = Math.max(res, r - l + 1);
+  }
+  return res;
+};
+
+module.exports = {
+  findLongestSubstring,
+  findLongestSubstring2,
+};
