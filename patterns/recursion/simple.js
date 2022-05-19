@@ -14,8 +14,14 @@ function productOfArray(nums) {
   return nums[0] * productOfArray(nums.slice(1));
 }
 
+function recursiveRange(n) {
+  if (n === 1) return 1;
+  return n + recursiveRange(n - 1);
+}
+
 module.exports = {
   power,
   factorial,
   productOfArray,
+  recursiveRange,
 };
