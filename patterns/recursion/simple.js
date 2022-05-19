@@ -1,6 +1,5 @@
 function power(base, exp) {
-  if (base === 0) return 1;
-  if (base === 1) return base;
+  if (exp === 0) return 1;
   return base * power(base, exp - 1);
 }
 
@@ -15,8 +14,13 @@ function productOfArray(nums) {
 }
 
 function recursiveRange(n) {
-  if (n === 1) return 1;
+  if (n === 0) return 0;
   return n + recursiveRange(n - 1);
+}
+
+function fibonacci(n) {
+  if (n <= 2) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 module.exports = {
@@ -24,4 +28,5 @@ module.exports = {
   factorial,
   productOfArray,
   recursiveRange,
+  fibonacci,
 };
