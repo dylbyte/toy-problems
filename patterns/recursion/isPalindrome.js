@@ -6,4 +6,12 @@ function isPalindrome(str) {
   return isPalindrome(str.slice(1, lastIdx));
 }
 
-module.exports = isPalindrome;
+function isPalindrome2(str) {
+  if (str.length <= 1) return true;
+  if (str[0] === str.slice(-1)) {
+    return isPalindrome2(str.slice(1, -1));
+  }
+  return false;
+}
+
+module.exports = { isPalindrome, isPalindrome2 };
